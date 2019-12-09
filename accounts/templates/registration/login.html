@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'login.css' %}" />
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <img style="width:100%" src="https://www.opptrends.com/wp-content/uploads/2017/08/Best-cars-696x425.jpg" alt="">
+        </div>
+
+        <div class="col-lg-6">
+                <form style="border: 1px solid grey; margin: 0% 0%; padding: 10% 5%" method="post">
+                                    <h2>Login</h2>
+
+                    {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit">Login</button>
+                    <br>
+                    <span>Do not have an account?<a href="{% url 'register' %}" style="color:blue">Sign up here</a></span>
+                </form>
+                  <div class="content1">
+    <a href="{% url 'home' %}" class="btn btn-warning">Homepage</a>
+
+                      <h1 id="red">DRIVECLUB</h1>
+</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

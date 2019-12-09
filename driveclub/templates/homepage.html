@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+</head>
+<body>
+<nav id="topmenu">
+    {% if user.is_authenticated %}
+     <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'vehicles' %}">Vehicles</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+      <li id="right"><a href="{% url 'user_redirect' %}">Welcome, {{user.username}} !</a> </li>
+      <h1 id="left">DriveClub</h1>
+  </ul>
+    {% else %}
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'vehicles' %}">Vehicles</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+      <li id="right"><a href="{% url 'login' %}">Log in</a> </li>
+      <p id="left">DriveClub</p>
+  </ul>
+    {% endif %}
+</nav>
+<header>
+  <h1>Welcome to DriveClub</h1>
+</header>
+<p>Here you can post your vehicle configurations and compare it to the other vehicles available.</p>
+<video autoplay muted loop id="myVideo">
+        <source src="{% static 'Intro.mp4' %}">
+    </video>
+
+<main>
+    <h2>Koenigsegg Agera</h2>
+    <p>It was named Hypercar of the Year in 2010 by Top Gear magazine. The Agera RS variant is the world's fastest production car, setting a record in 2017 with a GPS-verified two-way average top speed of 447 km/h (278 mph) and a fastest straight-line speed of 458 km/h (285 mph).</p>
+    
+</main>
+<img src="https://photos7.motorcar.com/used-2014-koenigsegg-agera-agerar-8431-18634064-1-1024.jpg">
+<footer>
+  <p id="size">Powered by Python</p>
+
+  <p>©copyright</p>
+</footer>
+</body>
+</html>

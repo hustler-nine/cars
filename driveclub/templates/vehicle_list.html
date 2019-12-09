@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'vehicle_list.css' %}">
+</head>
+<body>
+
+<nav id="topmenu">
+  <ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'vehicles' %}">Vehicles</a></li>
+    <li><a href="{% url 'about' %}">About</a></li>
+      <li id="right"><a href="{% url 'user_redirect' %}">Welcome, {{user.username}} !</a> </li>
+      <h1 id="left">DriveClub</h1>
+  </ul>
+</nav>
+<div class="container">
+    <a href="{% url 'create' %}" class="btn btn-warning">Add Vehicle</a>
+    <a href="{% url 'user_list' %}" class="btn btn-success">My Vehicles</a>
+
+    {% if vehicles %}
+    <div class="row">
+       {% for vehicle in vehicles %}
+         <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+  <img src="{{vehicle.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{vehicle.name}}</h5>
+
+    <a href="{% url 'detail' vehicle.id %}" class="btn btn-primary">See info</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</body>
+
+
+
+</body>
+</html>
