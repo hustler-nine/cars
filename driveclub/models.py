@@ -26,6 +26,7 @@ class Vehicle(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
 # auto deletes files from media folder tied to the user
 @receiver(pre_delete, sender=Vehicle)
 def my_model_delete(sender, instance, **kwargs):
